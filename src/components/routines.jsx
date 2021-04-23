@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Routine from './routine';
+import RoutineAddForm from './routineAddForm';
 
 class Routines extends Component {
   state = {
@@ -32,19 +33,30 @@ class Routines extends Component {
     this.setState({ routines });
   };
 
+  handelAdd = (name) => {
+    const routines = [
+      ...this.state.routines,
+      { id: Date.now(), name, count: 0 },
+    ];
+    this.setState({ routines });
+  };
+
   render() {
     return (
-      <ul>
-        {this.state.routines.map((routine) => (
-          <Routine
-            key={routine.id}
-            routine={routine}
-            onIncrement={this.handleIncrement}
-            onDecrement={this.handleDecrement}
-            onDelete={this.handleDelete}
-          />
-        ))}
-      </ul>
+      <div className="routines">
+        <RoutineAddForm onAdd={this.handelAdd} />
+        <ul>
+          {this.state.routines.map((routine) => (
+            <Routine
+              key={routine.id}
+              routine={routine}
+              onIncrement={this.handleIncrement}
+              onDecrement={this.handleDecrement}
+              onDelete={this.handleDelete}
+            />
+          ))}
+        </ul>
+      </div>
     );
   }
 }
