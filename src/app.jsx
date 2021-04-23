@@ -1,5 +1,5 @@
 import './app.css';
-import Routine from './components/routine';
+import Routines from './components/routines';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import {
   faCheckSquare,
@@ -10,7 +10,7 @@ import {
 library.add(faCheckSquare, faPlusCircle, faMinusCircle, faTrash);
 
 function App() {
-  return <Routine />;
+  return <Routines />;
 }
 
 export default App;

@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-// import { faCoffee } from '@fortawesome/free-solid-svg-icons'
-
-class routine extends Component {
+class Routine extends Component {
   state = {
     name: 'Reading',
     count: 3,
@@ -20,10 +18,11 @@ class routine extends Component {
   handleDelete = () => {};
 
   render() {
+    const { name, count } = this.props.routine;
     return (
       <li className="routine">
-        <span className="routine-name">{this.state.name}</span>
-        <span className="routine-count">{this.state.count}</span>
+        <span className="routine-name">{name}</span>
+        <span className="routine-count">{count}</span>
         <button
           className="routine-button routine-increase"
           onClick={this.handleIncrement}
@@ -41,4 +40,4 @@ class routine extends Component {
   }
 }
 
-export default routine;
+export default Routine;
