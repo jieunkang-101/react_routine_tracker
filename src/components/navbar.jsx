@@ -1,12 +1,11 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-class Navbar extends Component {
+class Navbar extends PureComponent {
   render() {
     return (
       <nav className="navbar">
         <FontAwesomeIcon icon="tasks" className="navbar-logo" />
-
         <span>Routine Tracker</span>
         <span className="navbar-count">{this.props.totalCount}</span>
       </nav>
