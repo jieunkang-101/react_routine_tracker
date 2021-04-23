@@ -1,16 +1,22 @@
 import './app.css';
 import Routines from './components/routines';
+import Navbar from './components/navbar';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import {
-  faCheckSquare,
   faPlusCircle,
   faMinusCircle,
   faTrash,
+  faTasks,
 } from '@fortawesome/free-solid-svg-icons';
-library.add(faCheckSquare, faPlusCircle, faMinusCircle, faTrash);
+library.add(faPlusCircle, faMinusCircle, faTrash, faTasks);
 
 function App() {
-  return <Routines />;
+  return (
+    <>
+      <Navbar />
+      <Routines />
+    </>
+  );
 }
 
 export default App;

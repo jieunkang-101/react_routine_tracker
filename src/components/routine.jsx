@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
 class Routine extends Component {
   handleIncrement = () => {
     this.props.onIncrement(this.props.routine);
