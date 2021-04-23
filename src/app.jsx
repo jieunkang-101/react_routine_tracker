@@ -21,17 +21,23 @@ class App extends Component {
   };
 
   handleIncrement = (routine) => {
-    const routines = [...this.state.routines];
-    const index = routines.indexOf(routine);
-    routines[index].count++; // should update later! Do not update state object itself
+    const routines = this.state.routines.map((item) => {
+      if (item.id === routine.id) {
+        return { ...routine, count: routine.count + 1 };
+      }
+      return item;
+    });
     this.setState({ routines });
   };
 
   handleDecrement = (routine) => {
-    const routines = [...this.state.routines];
-    const index = routines.indexOf(routine);
-    const count = routines[index].count - 1; // should update later! Do not update state object itself
-    routines[index].count = count < 0 ? 0 : count;
+    const routines = this.state.routines.map((item) => {
+      if (item.id === routine.id) {
+        const count = routine.count - 1;
+        return { ...routine, count: count < 0 ? 0 : count };
+      }
+      return item;
+    });
     this.setState({ routines });
   };
 
@@ -51,11 +57,11 @@ class App extends Component {
   };
 
   handleReset = () => {
-    const routines = this.state.routines.map((habit) => {
-      if (habit.count !== 0) {
-        return { ...habit, count: 0 };
+    const routines = this.state.routines.map((routine) => {
+      if (routine.count !== 0) {
+        return { ...routine, count: 0 };
       }
-      return habit;
+      return routine;
     });
     this.setState({ routines });
   };
