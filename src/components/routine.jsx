@@ -1,21 +1,17 @@
 import React, { Component } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 class Routine extends Component {
-  state = {
-    name: 'Reading',
-    count: 3,
-  };
-
   handleIncrement = () => {
-    this.setState({ count: this.state.count + 1 });
+    this.props.onIncrement(this.props.routine);
   };
 
   handleDecrement = () => {
-    const count = this.state.count - 1;
-    this.setState({ count: count < 0 ? 0 : count });
+    this.props.onDecrement(this.props.routine);
   };
 
-  handleDelete = () => {};
+  handleDelete = () => {
+    this.props.onDelete(this.props.routine);
+  };
 
   render() {
     const { name, count } = this.props.routine;
